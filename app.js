@@ -1,13 +1,11 @@
 const express = require('express');
 const session = require('express-session');
-const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
 
 const app = express();
-const db = new sqlite3.Database('./data/randonnees.db');
 
 // Configuration
 app.set('view engine', 'ejs');
