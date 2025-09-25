@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion Design - Claire Nicolas</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Navbar principale -->
+  <%- include('partials/navbar', {session: session}) %>
+
+  <div class="container">
+    <h1>Motion Design</h1>
+  </div>
+
+
+  <!-- Galerie -->
+  <section class="gallery">
+    <div class="item anim2d">Projet 1 (Animation 2D)</div>
+    <div class="item anim3d">Projet 2 (Animation 3D)</div>
+    <div class="item montage">Projet 3 (Montage vidéo)</div>
+    <div class="item anim2d">Projet 4 (Animation 2D)</div>
+    <div class="item anim3d">Projet 5 (Animation 3D)</div>
+    <div class="item montage">Projet 6 (Montage vidéo)</div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+
+
+</html>

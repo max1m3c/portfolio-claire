@@ -1,0 +1,24 @@
+{
+  "name": "randonnees-site",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "init-db": "node init-db.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "CAMBIONE Maxime",
+  "license": "ISC",
+  "description": "Site de randonnées",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "multer": "^1.4.5-lts.2",
+    "sqlite3": "^5.1.7"
+  }
+}

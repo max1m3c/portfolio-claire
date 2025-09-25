@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biographie - Claire Nicolas</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Navbar principale -->
+  <%- include('partials/navbar', {session: session}) %>
+
+  <div class="container">
+    <h1>Biographie</h1>
+  </div>
+
+  <!-- Navbar secondaire (mini-tri) -->
+  <div class="sub-navbar">
+    <button class="filter-btn active" data-filter="all">Tout</button>
+    <button class="filter-btn" data-filter="competences">Compétences</button>
+    <button class="filter-btn" data-filter="formations">Formations</button>
+    <button class="filter-btn" data-filter="outils">Outils maîtrisés</button>
+    <button class="filter-btn" data-filter="experiences">Expériences</button>
+  </div>
+
+  <section class="gallery">
+    <div class="intro-box item formations">
+      <p>
+        <strong>Formations:</strong><br>
+        - 2025-2026: Bachelor 3 Design Graphique à l'ENAAI.<br>
+        - 2024-2025: Bachelor 2 Design graphique à l'ENAAI.<br>
+        - 2023-2024: Bachelor 1 Design graphique à l'ENAAI.<br>
+        - 2022-2023: Terminale générale spécialité mathématiques et anglais.
+      </p>
+    </div>
+  
+    <div class="intro-box item outils">
+      <p>
+        <strong>Outils maîtrisés:</strong><br>
+        - Illustrator<br>
+        - Indesign<br>
+        - Word/Excel<br>
+        - Photoshop<br>
+        - After Effect<br>
+        - Réseaux sociaux
+      </p>
+    </div>
+  
+    <div class="intro-box item experiences">
+      <p>
+        <strong>Expériences:</strong><br>
+        2025: Stage service de communication de la MJC de Crolles, création complète d'une signalétique et charte graphique.<br>
+        2024: Stage en imprimerie / Stage chez Adeunis (réalisation de visuels de communication sur Illustrator)<br>
+        2023-2024: Salarié au château du Touvet, chargé de l'accueil des visiteurs, encaissement d'entrées, renseignement / Garde d'enfants entre 2 et 8 ans<br>
+        2021-2022: Salariée à la MJC de Crolles, encadrement d'activités avec des enfants, accueil des familles, service client
+      </p>
+    </div>
+  
+    <div class="intro-box item competences">
+      <p>
+        <strong>Compétences:</strong><br>
+        - Anglais (C1)<br>
+        - Italien débutante (A2)<br>
+        - Permis
+      </p>
+    </div>
+  </section>
+  
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+
+<!-- Script de filtrage -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const items = document.querySelectorAll(".gallery .item");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Retirer "active" de tous les boutons
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const filter = button.getAttribute("data-filter");
+
+      items.forEach(item => {
+        if (filter === "all" || item.classList.contains(filter)) {
+          item.classList.remove("hidden");
+        } else {
+          item.classList.add("hidden");
+        }
+      });
+    });
+  });
+});
+</script>
+</html>

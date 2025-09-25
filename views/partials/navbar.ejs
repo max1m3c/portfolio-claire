@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <div class="logo-container">
+    <h1 class="site-title"><a href="/">Claire Nicolas</a></h1>
+  </div>
+
+  <!-- Bouton burger -->
+  <button class="menu-toggle" id="menu-toggle">☰</button>
+
+
+  
+
+  <!-- Liens de navigation -->
+  <div class="nav-links" id="nav-links">
+    <a href="/graphisme">Graphisme</a> 
+    <a href="/motiondesign">Motion Design</a> 
+    <a href="/illustration">Illustration</a>
+    <a href="/biographie">Biographie</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggleButton.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  });
+</script>
+

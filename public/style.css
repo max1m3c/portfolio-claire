@@ -1,0 +1,592 @@
+/* Variables CSS pour les couleurs et les tailles */
+:root {
+  --primary-color: #2A5BE2; /* dark-spring-green */
+  --secondary-color: #F2A3A3; /* sea-green */
+  --background-color: #FFFFFF; /* baby-powder */
+  --nav-background-color: #FAE4FA; /* ivory */
+  --nav-link-color: #2A5BE2; /* dartmouth-green */
+  --nav-link-hover-color: #F2A3A3; /* sea-green */
+  --text-color: #2E2E2E;
+  --border-color: #CCCCCC;
+  --focus-border-color: #176D3A; /* dark-spring-green */
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --card-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);
+  --font-family: "Baskerville", sans-serif;
+  --transition-duration: 0.3s;
+  --card-height: 300px;
+}
+
+/* Réinitialisation */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family, Baskerville, serif);
+  background-color: var(--background-color, #fff);
+  color: var(--text-color, #333);
+  line-height: 1.6;
+}
+
+/* Barre de navigation */
+.navbar {
+  background-color: var(--nav-background-color, #f8f8f8);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--box-shadow, 0 2px 6px rgba(0,0,0,0.1));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center; /* centre verticalement avec le reste */
+}
+
+.logo-container .site-title {
+  margin: 0; /* supprime les marges par défaut du h1 */
+}
+
+.logo-container .site-title a {
+  font-size: 2.2rem;       /* taille équilibrée */
+  font-weight: bold;
+  color: var(--nav-link-color, #000);
+  text-decoration: none;
+  font-family: Baskerville, serif;
+  line-height: 1;          /* évite l’espace vertical excessif */
+}
+
+/* Liens de navigation */
+.nav-links a {
+  font-size: 1.2rem;        /* Plus petit que le titre */
+  font-weight: normal;      /* Pas en gras */
+  color: var(--nav-link-color, #333);
+  margin-left: 2rem;
+  text-decoration: none;
+  font-family: Baskerville, serif;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--nav-link-hover-color, #666);
+}
+
+/* Bouton burger (mobile) */
+.menu-toggle {
+  display: none; /* caché sur desktop */
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--nav-link-color, #000);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* caché par défaut */
+    flex-direction: column;
+    background-color: var(--nav-background-color, #f8f8f8);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+    box-shadow: var(--box-shadow, 0 2px 6px rgba(0,0,0,0.1));
+  }
+
+  .nav-links a {
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .menu-toggle {
+    display: block; /* visible sur mobile */
+  }
+
+  .nav-links.active {
+    display: flex; /* affiché quand actif */
+  }
+}
+
+/* Encart de présentation */
+.intro-box {
+  max-width: 900px;                /* largeur max */
+  margin: 3rem auto;               /* centré horizontalement avec marges haut/bas */
+  background-color: var(--primary-color); /* bleu défini dans tes variables */
+  color: #FAE4FA;            /* rose défini dans tes variables */
+  padding: 2rem 3rem;
+  border-radius: 15px;             /* coins arrondis */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* petite ombre */
+  text-align: center;              /* centrer le texte */
+  line-height: 1.8;                /* lecture plus fluide */
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: Baskerville, serif;
+}
+
+
+/* Conteneur principal */
+.container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+/* Titres */
+h1 {
+  font-size: 4em;
+  text-align: center;
+  color: var(--nav-link-color);
+}
+
+h2, h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+
+/* Navbar secondaire */
+.sub-navbar {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  max-width: 900px;
+  background-color: var(--primary-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.sub-navbar .filter-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: Baskerville, serif;
+  font-size: 1.1rem;
+  color: #FAE4FA;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.sub-navbar .filter-btn:hover {
+  color: #F2A3A3;
+  transform: scale(1.05);
+}
+
+.sub-navbar .filter-btn.active {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* 
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}*/
+
+.gallery {
+  display: flex;
+  flex-direction: column; /* les items s’empilent verticalement */
+  align-items: center;    /* centre horizontalement les encarts */
+  gap: 1rem;              /* espace entre chaque encart */
+}
+/*
+.gallery .item {
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}*/
+
+.gallery .item {
+  width: 100%;           /* prend toute la largeur possible */
+  max-width: 900px;      /* limite la largeur pour rester esthétique */
+  height: auto;          /* s’adapte au contenu */
+  display: block;        /* bloque tout comportement flex horizontal */
+  background-color: var(--primary-color);
+  color: var(--nav-background-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.gallery .item.hidden {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+  display: none;
+}
+
+
+
+
+.titles {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* deux colonnes */
+  grid-template-rows: auto auto;  /* deux lignes */
+  text-align: center;
+  gap: 20px;
+  justify-items: center; /* centre les items dans leur cellule */
+}
+
+/* Place Illustration sur toute la largeur et centré */
+.illust {
+  grid-column: 1 / span 2; /* occupe les 2 colonnes */
+}
+
+
+h3 {
+  font-size: 1.2em;
+}
+
+/* Paragraphes */
+p {
+  margin-bottom: 1em;
+}
+
+/* Formulaires */
+input, textarea {
+  width: 100%;
+  padding: 0.75em;
+  margin: 0.5em 0 1em 0;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--focus-border-color);
+  outline: none;
+}
+
+/* Boutons */
+button {
+  background-color: var(--primary-color);
+  color: #FFFFFF;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Liens */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+
+.rando-card {
+  background-color: var(--nav-background-color);
+  border-radius: 8px;
+  box-shadow: var(--card-box-shadow);
+  overflow: hidden;
+  flex: 1 1 calc(25% - 1rem); /* 4 randonnées par ligne */
+  height: var(--card-height);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-duration);
+}
+
+.rando-card:hover {
+  transform: translateY(-5px);
+}
+
+.rando-card img {
+  max-width: 35rem;
+  min-width: 35rem;
+  height: 150px;
+  max-height: 150px;
+  min-height: 150px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.rando-card .card-body {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rando-card .card-body h2 {
+  margin-bottom: 0.5rem;
+  min-width: 300px;
+  max-width: 300px;
+  font-size: 1rem;
+}
+
+.rando-card .card-body p {
+  margin-bottom: 1rem;
+}
+
+.rando-card .card-body a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color var(--transition-duration);
+}
+
+.rando-card .card-body a:hover {
+  background-color: var(--secondary-color);
+}
+
+.rando-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.sort-buttons {
+  margin-bottom: 1rem;
+}
+
+/* Styles pour l'image de la randonnée */
+.rando-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.rando-image {
+  width: 100%;
+  max-width: 400px; /* Ajustez la largeur maximale selon vos besoins */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Styles pour le contenu de la randonnée */
+.rando-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.rando-details {
+  flex: 2;
+}
+
+.rando-map {
+  flex: 1;
+  width: 100%;
+  height: 400px; /* Ajustez la hauteur selon vos besoins */
+}
+
+/* Styles pour les étoiles */
+.rando-details p strong {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.rando-details p .star {
+  color: gold;
+  font-size: 1.5rem;
+}
+
+.site-footer {
+  background-color: var(--nav-background-color);
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: 3rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.95em;
+  color: var(--text-color);
+  box-shadow: var(--box-shadow);
+}
+
+.site-footer a {
+  color: var(--nav-link-color);
+  margin: 0 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-duration) ease;
+}
+
+.site-footer a:hover {
+  color: var(--nav-link-hover-color);
+  text-decoration: underline;
+}
+
+li {
+  margin: 10px;
+}
+
+.foot {
+  margin: 10px;
+}
+
+/* Styles pour le formulaire de connexion */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.password-group .password-input {
+  display: flex;
+  align-items: center;
+}
+
+.password-group .password-input input {
+  flex: 1;
+}
+
+.password-group .password-input button {
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5em 1em;
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+}
+
+.password-group .password-input button:hover {
+  background-color: var(--primary-color);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.checkbox-group label {
+  margin-left: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+#nouvel_utilisateur {
+  width: 1%;
+}
+
+/* Menu burger (caché sur desktop) */
+.menu-toggle {
+  display: none;
+  background: none;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  color: var(--nav-link-color);
+  margin-right: 1rem;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    align-self: center;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .nav-links a {
+    margin: 0.5rem 1rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
+
+
+
+/* Galerie / CV biographie */
+.gallery .item {
+  background-color: var(--primary-color); /* bleu */
+  color: var(--nav-background-color); /* rose */
+  border-radius: 12px;
+  padding: 2rem; /* espace intérieur suffisant */
+  margin: 1rem auto; /* centré verticalement avec marge */
+  max-width: 900px; /* largeur limitée */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: Baskerville, serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  
+  /* supprime toute hauteur fixe ou flex qui bride le texte */
+  height: auto;
+  display: block;
+}
+
+.gallery .item.hidden {
+  display: none;
+  opacity: 0;
+  transform: scale(0.95);
+}
+/* Style des encarts type intro-box */
+.intro-box {
+  background-color: var(--primary-color); /* bleu */
+  color: #FAE4FA; /* rose */
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1rem auto;
+  /*box-shadow: 0 4px 12px rgba(0,0,0,0.1);*/
+  font-family: Baskerville, serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: left;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Masquer les encarts filtrés */
+.gallery .item.hidden {
+  display: none;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+
+/* Navbar secondaire reste la même, si déjà dans style.css */

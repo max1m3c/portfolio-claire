@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claire Nicolas</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <%- include('partials/navbar', {session: session}) %>
+  <div class="container">
+    <h1>Mon Portfolio</h1>
+  </div>
+  <div class="titles">
+    <h2 class="graph"><a href="/graphisme"></a>Graphisme</h2>
+    <h2 class="motion"><a href="/motiondesign"></a>Motion Design</h2>
+    <h2 class="illust"><a href="/illustration"></a>Illustration</h2>
+  </div>
+  <section class="intro-box">
+    <p>
+      Passionnée de lecture et de sport, j'aime constamment me lancer des défis et repousser mes limites. 
+      Je me donne toujours à 100 %. Cette mentalité de dépassement de soi me pousse à être positive, déterminée et toujours prête à relever de nouveaux challenges. 
+      J'aime l'idée d'apprendre de chaque expérience et de grandir, tant sur le plan personnel que professionnel. 
+      J'aborde la création et le design de la même manière.
+    </p>
+  </section>
+  <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Graphique - Claire Nicolas</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Navbar principale -->
+  <%- include('partials/navbar', {session: session}) %>
+
+  <div class="container">
+    <h1>Design Graphique</h1>
+  </div>
+
+   <!-- Navbar secondaire (filtres) -->
+   <div class="sub-navbar">
+    <button class="filter-btn" data-filter="all">Tout</button>
+    <button class="filter-btn" data-filter="identite">Identité visuelle</button>
+    <button class="filter-btn" data-filter="signaletique">Signalétique</button>
+    <button class="filter-btn" data-filter="packaging">Packaging</button>
+  </div>
+
+  <!-- Galerie -->
+  <section class="gallery">
+    <div class="item identite">Projet 1 (Identité visuelle)</div>
+    <div class="item signaletique">Projet 2 (Signalétique)</div>
+    <div class="item packaging">Projet 3 (Packaging)</div>
+    <div class="item identite">Projet 4 (Identité visuelle)</div>
+    <div class="item signaletique">Projet 5 (Signalétique)</div>
+    <div class="item packaging">Projet 6 (Packaging)</div>
+  </section>
+
+  
+
+  <%- include('partials/footer') %>
+</body>
+<script>document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const items = document.querySelectorAll(".gallery .item");
+  
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        // Retirer "active" de tous les boutons
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+  
+        const filter = button.getAttribute("data-filter");
+  
+        items.forEach(item => {
+          if (filter === "all" || item.classList.contains(filter)) {
+            item.classList.remove("hidden");
+          } else {
+            item.classList.add("hidden");
+          }
+        });
+      });
+    });
+  });
+  </script>
+</html>
