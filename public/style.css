@@ -112,8 +112,8 @@ body {
     display: flex; 
   }
 }
-*/
-/* Pour les petits écrans (smartphones) */
+
+
 @media (max-width: 768px) {
   nav.navbar {
     flex-direction: column;
@@ -124,12 +124,12 @@ body {
   .nav-links {
     flex-direction: column;
     width: 100%;
-    display: none; /* cache les liens, on montrera avec un bouton */
+    display: none; 
   }
 
   .nav-links a {
     margin: 0.5rem 0;
-    font-size: 1rem; /* réduit un peu la taille des liens */
+    font-size: 1rem; 
   }
 
   .menu-toggle {
@@ -142,7 +142,7 @@ body {
   }
 
   .titles h2 {
-    font-size: 1.2rem; /* titre plus petit */
+    font-size: 1.2rem; 
     text-align: center;
     margin: 0.5rem 0;
   }
@@ -158,12 +158,201 @@ body {
   }
 }
 
-/* Pour tablettes */
 @media (max-width: 1024px) {
   .titles h2 {
     font-size: 1.5rem;
   }
 }
+*/
+
+
+
+
+/* =========================
+   Styles responsives mobile
+   ========================= */
+
+/* Petits écrans : smartphones */
+@media (max-width: 480px) {
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin: 0.5rem 0;
+    font-size: 1.8rem;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  /* Titres */
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  /* Encarts intro-box et galerie */
+  .intro-box, .gallery .item {
+    width: 95%;
+    padding: 1.5rem;
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .sub-navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .sub-navbar .filter-btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  /* Rando cards */
+  .rando-card {
+    flex: 1 1 100%;
+    height: auto;
+  }
+
+  .rando-card img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-width: auto;
+    min-height: auto;
+  }
+
+  .rando-card .card-body h2 {
+    min-width: auto;
+    max-width: auto;
+    font-size: 0.9rem;
+  }
+
+  .rando-content {
+    flex-direction: column;
+  }
+
+  .rando-map {
+    height: 300px;
+    margin-top: 1rem;
+  }
+}
+
+/* Tablettes : écrans moyens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+  }
+
+  .nav-links a {
+    margin: 0.5rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  /* Titres */
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Encarts */
+  .intro-box, .gallery .item {
+    width: 90%;
+    padding: 1.8rem;
+  }
+
+  .sub-navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sub-navbar .filter-btn {
+    font-size: 1.05rem;
+  }
+
+  .rando-content {
+    flex-direction: column;
+  }
+
+  .rando-map {
+    height: 350px;
+  }
+}
+
+/* Grands écrans : petits laptops */
+@media (max-width: 1024px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .intro-box, .gallery .item {
+    width: 85%;
+  }
+
+  .rando-map {
+    height: 400px;
+  }
+}
+
+
+
+
 /* Encart de présentation */
 .intro-box {
   max-width: 900px;                /* largeur max */
