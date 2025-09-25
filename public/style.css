@@ -84,10 +84,10 @@ body {
   color: var(--nav-link-color, #000);
 }
 
-/* Responsive */
+/*
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* caché par défaut */
+    display: none; 
     flex-direction: column;
     background-color: var(--nav-background-color, #f8f8f8);
     position: absolute;
@@ -105,14 +105,65 @@ body {
   }
 
   .menu-toggle {
-    display: block; /* visible sur mobile */
+    display: block; 
   }
 
   .nav-links.active {
-    display: flex; /* affiché quand actif */
+    display: flex; 
+  }
+}
+*/
+/* Pour les petits écrans (smartphones) */
+@media (max-width: 768px) {
+  nav.navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* cache les liens, on montrera avec un bouton */
+  }
+
+  .nav-links a {
+    margin: 0.5rem 0;
+    font-size: 1rem; /* réduit un peu la taille des liens */
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .titles h2 {
+    font-size: 1.2rem; /* titre plus petit */
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  .intro-box, .sub-navbar, .gallery .item {
+    width: 100%;
+    margin: 0 auto 1rem auto;
+  }
+
+  .sub-navbar button.filter-btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
 }
 
+/* Pour tablettes */
+@media (max-width: 1024px) {
+  .titles h2 {
+    font-size: 1.5rem;
+  }
+}
 /* Encart de présentation */
 .intro-box {
   max-width: 900px;                /* largeur max */
